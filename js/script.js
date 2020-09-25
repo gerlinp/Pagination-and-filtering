@@ -7,9 +7,6 @@ console.log(list);
 const perPage =  10;
 const searchBar = document.getElementById("searchBar");
 
-searchBar.addEventListener('keyup',() => {
-
-});
 
 
 const showPage = (list, page) => {
