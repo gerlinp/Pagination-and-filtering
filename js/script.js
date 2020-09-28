@@ -1,8 +1,8 @@
 // -----------GLOBAL VARIABLES---------------------//
 const list = document.getElementsByClassName("student-item cf");
 console.log(list);
-const perPage =  10;
-const total = Math.ceil(list.length / perPage);
+const perPage =  10; // How many items per page
+const total = Math.ceil(list.length / perPage); // variable that creates the neccesary amount of pages based off available list items.
 
 
 
