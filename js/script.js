@@ -1,15 +1,12 @@
-
-
-
 // -----------GLOBAL VARIABLES---------------------//
 const list = document.getElementsByClassName("student-item cf");
 console.log(list);
 const perPage =  10;
-const searchBar = document.getElementById("searchBar");
+const total = Math.ceil(list.length / perPage);
 
 
 
-const showPage = (list, page) => {
+const showPage = (list, page) => { // Function that displays 10 list items based off page selected and hides the rest.
    const startIndex = (page * perPage) - perPage
    const endIndex = page * perPage
   
@@ -22,19 +19,17 @@ const showPage = (list, page) => {
    }
 };
 
+const appendPageLinks = (pages) => { // function that creates the pagination buttons and adds them to dom while using the showpage function to only display what is asked for.
+   
+      const newDiv = document.createElement("div");
+   newDiv.className = "pagination";
 
-const total = Math.ceil(list.length / perPage);
+   const pageDiv = document.querySelector(".page");
+   pageDiv.appendChild(newDiv);
 
-const newDiv = document.createElement("div");
-newDiv.className = "pagination";
-
-const pageDiv = document.querySelector(".page");
-pageDiv.appendChild(newDiv);
-
-const ul = document.createElement("ul");
-newDiv.appendChild(ul);
-
-const appendPageLinks = (pages) => {
+   const ul = document.createElement("ul");
+   newDiv.appendChild(ul);
+      
    for (let i = 1; i <= pages; i += 1) {
      const li = document.createElement("li");
      ul.appendChild(li);
@@ -59,6 +54,6 @@ const appendPageLinks = (pages) => {
    }
 };
 
-
-showPage(list, 1);
+// Functions called to have 1st page be default when opening page. 
+showPage(list, 1); 
 appendPageLinks(total) ; 
